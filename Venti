@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calcolo IVA</title>
+    <script>
+        function calcolaIVA() {
+            var imponibile = parseFloat(document.getElementById('imponibile').value);
+            var aliquotaIVA = parseFloat(document.getElementById('aliquotaIVA').value);
+            var importoIVA = (imponibile * aliquotaIVA) / 100;
+            var totale = imponibile + importoIVA;
+            document.getElementById('importoIVA').innerHTML = importoIVA.toFixed(2) + ' EUR';
+            document.getElementById('totale').innerHTML = totale.toFixed(2) + ' EUR';
+        }
+    </script>
+</head>
+<body>
+    <h1>Calcolo IVA</h1>
+    <label for="imponibile">Imponibile:</label>
+    <input type="number" id="imponibile" step="0.01" onchange="calcolaIVA()">
+    <label for="aliquotaIVA">Aliquota IVA (%):</label>
+    <input type="number" id="aliquotaIVA" step="0.01" onchange="calcolaIVA()">
+    <p>Importo IVA: <span id="importoIVA"></span></p>
+    <p>Totale: <span id="totale"></span></p>
+</body>
+</html>
